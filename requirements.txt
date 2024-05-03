@@ -41,4 +41,3 @@ urllib3==2.2.1
 virtualenv==20.25.1
 wcwidth==0.2.13
 whitenoise==6.6.0
-wit @ file:///Users/jennymyzhang/Desktop/LinKidEat/pywit
