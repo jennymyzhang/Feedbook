@@ -47,7 +47,7 @@ export const createMessage = async (dispatch, userid, chatid, message) => {
         }
         dispatch({type: "WAIT_RESPONSE", payload: false})
     } catch (err) {
-        dispatch({ type: 'END_LOADING'})
+        dispatch({type: "WAIT_RESPONSE", payload: false})
         dispatch({ 
             type: 'UPDATE_ALERT',
             payload: {
