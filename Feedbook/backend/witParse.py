@@ -138,16 +138,17 @@ recordSuccess = [
 
 
 class parseMessage:
-    def __init__(self, res):
+    def __init__(self, res, user_id):
         self.intents = res["intents"]
         self.entities = res["entities"]
         self.traits = res["traits"]
         self.res = res
+        self.user_id = user_id
         
         
     def parse(self):
         try:
-            if len(self.intents) == 0:
+            if len(self.intents) == 0 or len(self.entities) == 0:
                 random.shuffle(examples)
                 return f"""
                 Sorry, we are having trouble processing your prompt, here are some prompt examples that you may want to use: \n
@@ -158,6 +159,13 @@ class parseMessage:
             elif self.intents[0]["name"] == RECORD:
                 return self.recordEntry()
         except Exception as e:
+            random.shuffle(examples)
+            return f"""
+                Sorry, we are having trouble processing your prompt, here are some prompt examples that you may want to use: \n
+                1. {examples[0]} \n
+                2. {examples[1]} \n
+                3. {examples[2]} \n
+                """
             logging.error("error in parseMessage")
             
     
@@ -182,7 +190,7 @@ class parseMessage:
                 datetime = datetime[0].get("value")
                 
                 random.shuffle(recordSuccess)
-                instance = Feed(babyName = babyname, food = food, mass = mass, volume = volume, time = datetime, userid = 1)
+                instance = Feed(babyName = babyname, food = food, mass = mass, volume = volume, time = datetime, user = self.user_id)
                 instance.save()
                 pageNumber = random.randint(1, 100)
             return f"Got it on Page {pageNumber}! \n {recordSuccess[0]}"

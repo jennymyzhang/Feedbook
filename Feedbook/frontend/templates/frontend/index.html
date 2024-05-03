@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TweeTails</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
+    />
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/tweetails.appspot.com/o/animals%2F1%2FScreenshot%202024-04-26%20at%204.14.57%20PM.png?alt=media&token=b7cd8660-c516-4d5e-a7b4-5be66e6551e8" type="image/x-icon">
+  </head>
+  <body>
+    <div id="main">
+      <div id="root"></div>
+    </div>
+
+    <script src="{% static "frontend/main.js" %}"></script>
+  </body>
+</html>

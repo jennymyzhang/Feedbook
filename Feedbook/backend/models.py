@@ -1,19 +1,26 @@
 from django.db import models
+from django.conf import settings
+import datetime
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, User
 
+class Chat(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='chats', null=True,)
+    created_at = models.DateTimeField(default=datetime.datetime.now)
+    
 class Message(models.Model):
     message = models.TextField()
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
-    userid = models.IntegerField()
+    response = models.TextField()
+    created_at = models.DateTimeField(default=datetime.datetime.now)
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE, related_name='messages', null=True,)
+    
     
 class Feed(models.Model):
     babyName = models.TextField()
-    userid = models.IntegerField()
     food = models.TextField()
     mass = models.TextField()
     volume = models.TextField()
     time = models.TextField()
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='feeds', null=True,)
 
 
 

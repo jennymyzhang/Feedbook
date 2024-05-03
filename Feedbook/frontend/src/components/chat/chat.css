@@ -1,0 +1,174 @@
+.chat {
+    flex: 2;
+    border-left: 1px solid #dddddd35;
+    border-right: 1px solid #dddddd35;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .top {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #dddddd35;
+    
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+    
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+    
+          .texts {
+            display: flex;
+            flex-direction: column;
+            white-space: pre-wrap;
+            gap: 5px;
+    
+            span {
+              font-size: 18px;
+              font-weight: bold;
+            }
+    
+            pre {
+              font-size: 14px;
+              font-weight: 300;
+              color: #a5a5a5;
+            }
+          }
+        }
+    };
+
+    .center {
+        padding: 20px;
+        flex: 1;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    
+        .message {
+          max-width: 70%;
+          display: flex;
+          gap: 20px;
+
+    
+          &.own {
+            align-self: flex-end;
+    
+            .texts {
+              pre {
+                background-color: #5183fe;
+                white-space: pre-wrap;
+              }
+            }
+          }
+    
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          .texts {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            white-space: pre-wrap;
+    
+            img {
+              width: 100%;
+              height: 300px;
+              border-radius: 10px;
+              object-fit: cover;
+            }
+    
+            pre {
+              padding: 20px;
+              background-color: rgba(17, 25, 40, 0.3);
+              border-radius: 10px;
+              white-space: pre-wrap;
+            }
+    
+            span {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      
+    .bottom {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #dddddd35;
+        gap: 20px;
+        margin-top: auto;
+
+        .sendButton {
+          background-color: #5183fe;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+
+        }
+      }
+}
+
+.bottom .inputWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.bottom .inputWrapper input {
+  width: 100%;
+  background-color: rgba(17, 25, 40, 0.5);
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.bottom .inputWrapperNotDisabled {
+  position: relative;
+  flex: 1;
+}
+
+.bottom .inputWrapperNotDisabled input {
+  width: 100%;
+  background-color: rgba(17, 25, 40, 0.5);
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+
+.bottom .inputWrapper:hover::before {
+  content: attr(title);
+  display: block;
+  position: absolute;
+  background-color: #00000025;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  bottom: 100%; /* Position below the input */
+  left: 50%; /* Centered horizontally */
+  transform: translate(-50%, 20px); /* Adjusted to not overlap input */
+  white-space: nowrap; /* Keeps the tooltip text on one line */
+  pointer-events: none; /* Prevents tooltip from being clickable */
+}
