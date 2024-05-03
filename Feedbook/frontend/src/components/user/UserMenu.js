@@ -22,7 +22,7 @@ const UserMenu = ({ anchorUserMenu, setAnchorUserMenu }) => {
         onClose={handleCloseUserMenu}
         onClick={handleCloseUserMenu}
       >
-         (
+         
           <MenuItem
             onClick={() =>
               dispatch({
@@ -40,7 +40,7 @@ const UserMenu = ({ anchorUserMenu, setAnchorUserMenu }) => {
             </ListItemIcon>
             Profile
           </MenuItem>
-        )
+        
         <MenuItem
           onClick={() => {logout(dispatch)}}
         >
