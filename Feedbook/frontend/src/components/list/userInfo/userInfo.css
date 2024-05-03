@@ -1,28 +1,28 @@
 .userInfo {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  
-    .user {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-      .username {
-        font-family: 'Courier New', Courier, monospace;
-      }
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-    }
-  
-    .icons {
-      display: flex;
-      gap: 5px;
-  
-    }
-  }
+.userInfo .user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userInfo .user .username {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.userInfo .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userInfo .icons {
+  display: flex;
+  gap: 5px;
+}

@@ -1,43 +1,43 @@
 .chatlist {
-    flex: 1;
-    overflow: scroll;
+  flex: 1;
+  overflow: scroll;
+}
 
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      cursor: pointer;
-      border-bottom: 2px solid #dddddd35;
-      border-radius: 12px;
-  
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-  
-      .texts {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-  
-        span {
-          font-weight: 500;
-          font-size: 16px;
-          font-family: Courier, monospace;
-        }
-  
-        p {
-          font-size: 11px;
-          font-weight: 300;
-          
-        }
-      }
-    }
-    .item.active {
-      background-color: #7e6363a9; /* Set your desired darker color */
-      color: #fff; /* Adjust text color for better contrast */
-    }
-  }
+.chatlist .item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 2px solid #dddddd35;
+  border-radius: 12px;
+}
+
+.chatlist .item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatlist .item .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.chatlist .item .texts span {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.chatlist .item .texts p {
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.chatlist .item.active {
+  background-color: #7e6363a9;
+  color: #fff;
+}

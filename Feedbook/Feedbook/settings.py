@@ -30,8 +30,8 @@ SECRET_KEY = 'django-insecure-9n6cbjs413oz!t1+#c*r$%t+0h=qmizcw!!f&_g%^kj6v45%kx
 #DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-#ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -141,13 +141,11 @@ DATABASES = {
 """
 
 
-database_url = os.environ.get("DATABASE_URL")
-#DATABASES["default"] = dj_database_url.parse(database_url)
-
-DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'], engine='django_cockroachdb')}
+#database_url = os.environ.get("DATABASE_URL")
+#DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'], engine='django_cockroachdb')}
 
 #pass: kMzgkwvnzf-K9maQaG4NXA
-#DATABASES = {'default': dj_database_url.config(default="postgresql://feedbook_user:kMzgkwvnzf-K9maQaG4NXA@feedbook-7516.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?", engine='django_cockroachdb')}
+DATABASES = {'default': dj_database_url.config(default="postgresql://feedbook_user:kMzgkwvnzf-K9maQaG4NXA@feedbook-7516.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?", engine='django_cockroachdb')}
 
 #DATABASES["default"]=dj_database_url.parse("postgresql://feedbook_user:oqdS5D2cafwbY39x-L7wAw@feedbook-7514.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")
 # Password validation
