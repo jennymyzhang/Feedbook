@@ -1,12 +1,12 @@
 .chat {
-    flex: 2;
-    border-left: 1px solid #dddddd35;
-    border-right: 1px solid #dddddd35;
+    flex: 3;
+    border-left: 2px solid #dddddd35;
+    border-right: 2px solid #dddddd35;
     height: 100%;
     display: flex;
     flex-direction: column;
     .top {
-        padding: 20px;
+        padding: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -15,42 +15,37 @@
         .user {
           display: flex;
           align-items: center;
-          gap: 20px;
-    
-          img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
+          gap: 10px;
     
           .texts {
             display: flex;
             flex-direction: column;
             white-space: pre-wrap;
-            gap: 5px;
     
             span {
-              font-size: 18px;
-              font-weight: bold;
+              font-size: 30px;
+              font-family: Courier, monospace;
+              font-weight: 900;
+              color: #291616
             }
     
-            pre {
+            p {
+              padding-left: 20%;
               font-size: 14px;
-              font-weight: 300;
-              color: #a5a5a5;
+              font-weight: 900;
+              color: #e4e3e3;
             }
           }
         }
     };
 
     .center {
-        padding: 20px;
+        padding: 10px;
         flex: 1;
         overflow: scroll;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
     
         .message {
           max-width: 70%;
@@ -70,8 +65,8 @@
           }
     
           img {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             object-fit: cover;
           }
@@ -79,7 +74,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 1px;
             white-space: pre-wrap;
     
             img {
@@ -90,14 +85,16 @@
             }
     
             pre {
-              padding: 20px;
+              padding: 15px;
               background-color: rgba(17, 25, 40, 0.3);
-              border-radius: 10px;
+              border-radius: 20px;
               white-space: pre-wrap;
+              font-family: Courier, monospace;
+              font-size: 14px;
             }
     
             span {
-              font-size: 13px;
+              font-size: 11px;
             }
           }
         }

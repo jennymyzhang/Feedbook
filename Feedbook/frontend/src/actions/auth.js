@@ -118,7 +118,7 @@ export const signup = async (first_name, last_name, email, password, re_password
             payload: {
                 open: true,
                 severity: 'error',
-                message: 'Sign up failed, please log in if you have an existing account or contact TweeTails for assistance',
+                message: 'Sign up failed, please log in if you have an existing account or contact Feedbook for assistance',
               },
         })
     }

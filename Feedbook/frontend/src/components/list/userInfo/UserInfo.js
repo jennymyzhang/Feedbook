@@ -19,13 +19,13 @@ const UserInfo = () => {
     <div className='userInfo'>
         <div className='user'>
         <UserIcons/>
-          <h2> {currentUser?.first_name + " " + currentUser?.last_name}</h2>
+          <h3 className='username'> {currentUser?.first_name + " " + currentUser?.last_name}</h3>
         </div>
         <IconButton
                 sx={{ color: 'white' }}
               onClick={addPage}
               >
-                <Add />
+                <Add sx={{ fontSize: '2rem' }} />
               </IconButton>
     </div>
   )

@@ -95,6 +95,11 @@ const reducer = (state, action) => {
           ...state,
           allMessages: action.payload
         }
+        case 'WAIT_RESPONSE':
+          return {
+            ...state,
+            waitingForResponse: action.payload
+          }
       
         default:
           throw new Error('No matched action!');

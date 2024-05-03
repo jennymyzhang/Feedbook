@@ -17,6 +17,7 @@ const initialState = {
   alert: {open: false, severity: 'info', message:''},
   profile: { open: false, file: null, photoURL: ''},
   allMessages: [],
+  waitingForResponse: false,
   openChat: null,
 };
 

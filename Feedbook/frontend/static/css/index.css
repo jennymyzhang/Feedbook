@@ -20,7 +20,7 @@ body, html{
     height: 90vh;
     background-color: #7e636368;
     backdrop-filter: blur(19px) saturate(180%);
-    border-radius: 12px;
+    border-radius: 14px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     overflow: auto;
     display: flex;

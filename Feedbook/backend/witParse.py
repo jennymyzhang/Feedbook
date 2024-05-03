@@ -118,7 +118,7 @@ examples = [
     "Please record that I fed my baby Rickie with 200ml milk today at 2pm",
     "What did my girl Jingling eat last Friday?",
     "When was the last time that my boy Jason ate?",
-    "Did I give Tina food this afternoon?"
+    "Did I give Tina food this afternoon?",
     "When was the last time that Alex drink water?",
     "Do I have to provide food to my children?",
 ]
@@ -166,7 +166,6 @@ class parseMessage:
                 2. {examples[1]} \n
                 3. {examples[2]} \n
                 """
-            logging.error("error in parseMessage")
             
     
     def recordEntry(self):
@@ -190,7 +189,7 @@ class parseMessage:
                 datetime = datetime[0].get("value")
                 
                 random.shuffle(recordSuccess)
-                instance = Feed(babyName = babyname, food = food, mass = mass, volume = volume, time = datetime, user = self.user_id)
+                instance = Feed(babyName = babyname, food = food, mass = mass, volume = volume, time = datetime, user_id = self.user_id)
                 instance.save()
                 pageNumber = random.randint(1, 100)
             return f"Got it on Page {pageNumber}! \n {recordSuccess[0]}"
