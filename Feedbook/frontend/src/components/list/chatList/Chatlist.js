@@ -21,7 +21,7 @@ const Chatlist = () => {
   }, [openChat]);
 
   if (!Array.isArray(allMessages)) {
-    return <div>Loading...</div>; // Or any other placeholder or loading indicator
+    return <div></div>; // Or any other placeholder or loading indicator
   }
 
   return (

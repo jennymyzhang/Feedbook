@@ -2,10 +2,11 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.db import models
 from .serializers import MessageSerializer
 from urllib.parse import quote
 import json
-from .models import Chat
+from .models import Chat, Message
 from .serializers import ChatSerializer
 from .witParse import parseMessage
 from django.contrib.auth.models import User
@@ -23,6 +24,7 @@ class GetUserDetails(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, format=None):
+        print(request.user)
         serializer = UserCreateSerializer(request.user)
         return Response(serializer.data)
 
@@ -75,7 +77,10 @@ class CreateMessageAPIView(APIView):
         user_id = request.data.get('user_id')
         message_text = request.data.get('message')
         res = self.getResponseFromWit(message_text, user_id)
+        max_id = Message.objects.aggregate(max_id=models.Max('id'))['max_id'] or 0
+        next_id = max_id + 1
         message_data = {
+            'id': next_id,
             'message': message_text,
             'chat': chat_id,
             'response': res,
@@ -86,7 +91,7 @@ class CreateMessageAPIView(APIView):
             chats = Chat.objects.filter(user_id=user_id).order_by('-created_at')
             chat_serializer = ChatSerializer(chats, many=True)
             return Response(chat_serializer.data, status=status.HTTP_201_CREATED)
-        return Response(chat_serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        return Response("an error occurred", status=status.HTTP_400_BAD_REQUEST)
     
     def getResponseFromWit(self, message, user_id) :
         response = requests.get(URI + quote(message), headers={'Authorization': AUTH, 'content_type': 'application/json'}).json()
@@ -96,9 +101,11 @@ class CreateMessageAPIView(APIView):
 class ChatCreateAPIView(APIView):
     def post(self, request):
         user_id = request.data.get('user_id')
-
+        
+        max_id = Chat.objects.aggregate(max_id=models.Max('id'))['max_id'] or 0
+        next_id = max_id + 1
         # Create an empty chat for the user
-        chat = Chat.objects.create(user_id=user_id)
+        chat = Chat.objects.create(user_id=user_id, id = next_id)
 
         chats = Chat.objects.filter(user_id=user_id).order_by('-created_at')
         chat_serializer = ChatSerializer(chats, many=True)

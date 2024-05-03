@@ -19,7 +19,7 @@ const UserInfo = () => {
     <div className='userInfo'>
         <div className='user'>
         <UserIcons/>
-          <h3 className='username'> {currentUser?.first_name + " " + currentUser?.last_name}</h3>
+          <h3 className='username'> {currentUser ? currentUser?.first_name + " " + currentUser?.last_name : ''}</h3>
         </div>
         <IconButton
                 sx={{ color: 'white' }}

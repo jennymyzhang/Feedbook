@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'backend.apps.BackendConfig',
+    'rest_framework.authtoken',
     'rest_framework',
     'djoser',
     'frontend.apps.FrontendConfig',
@@ -140,13 +141,13 @@ DATABASES = {
 """
 
 
-#database_url = os.environ.get("DATABASE_URL")
+database_url = os.environ.get("DATABASE_URL")
 #DATABASES["default"] = dj_database_url.parse(database_url)
 
 DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'], engine='django_cockroachdb')}
 
-#pass: oqdS5D2cafwbY39x-L7wAw
-#DATABASES = {'default': dj_database_url.config(default="postgresql://feedbook_user:oqdS5D2cafwbY39x-L7wAw@feedbook-7514.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full", engine='django_cockroachdb')}
+#pass: kMzgkwvnzf-K9maQaG4NXA
+#DATABASES = {'default': dj_database_url.config(default="postgresql://feedbook_user:kMzgkwvnzf-K9maQaG4NXA@feedbook-7516.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?", engine='django_cockroachdb')}
 
 #DATABASES["default"]=dj_database_url.parse("postgresql://feedbook_user:oqdS5D2cafwbY39x-L7wAw@feedbook-7514.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")
 # Password validation

@@ -20,17 +20,17 @@ const App = () => {
       }, []);
       
       return (
+            <Layout>
             <div className="container">
             <BrowserRouter>
-            <Layout>
                   <Routes>
                         <Route path="activate/:uid/:token" element={<Activate/>} />
                         {!isAuthenticated && <Route path="*" element={<Login />}/>}
                         {isAuthenticated && <Route path="*" element={<Home />}/>}
                   </Routes>
-                  </Layout>
             </BrowserRouter>
             </div>
+            </Layout>
       )
 }
   export default App;

@@ -60,7 +60,7 @@ const Chat = () => {
     setLastInput("");
   }, [openChat])
   if (!Array.isArray(allMessages)) {
-    return <div>Loading...</div>; // Or any other placeholder or loading indicator
+    return <div></div>; // Or any other placeholder or loading indicator
   }
 
   const chat = allMessages.find(c => c.id === openChat);
@@ -91,7 +91,7 @@ const Chat = () => {
               <pre>{removeExtraSpaces(message.message)}</pre>
               <span>{getTimeDifference(message.created_at)}</span>
             </div>
-            <img   src={currentUser?.photoURL} />
+            <img   src={currentUser?.photoURL ? currentUser?.photoURL   : 'https://firebasestorage.googleapis.com/v0/b/feedbook-90764.appspot.com/o/unknown.jpeg?alt=media&token=a9d0bdc7-fc56-45ae-938d-0a71001adf7b'} />
           </div>
           <div className={'message'} >
           <img   src="https://firebasestorage.googleapis.com/v0/b/feedbook-90764.appspot.com/o/feedbookicon.jpeg?alt=media&token=a72e726a-704c-4c69-ba47-b0fad61e61ec" />

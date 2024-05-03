@@ -71,7 +71,7 @@ import {
                 onChange={handleChange}
               />
               <Avatar
-                src={profile.photoURL}
+                src={profile.photoURL ?  profile.photoURL : 'https://firebasestorage.googleapis.com/v0/b/feedbook-90764.appspot.com/o/unknown.jpeg?alt=media&token=a9d0bdc7-fc56-45ae-938d-0a71001adf7b'}
                 sx={{ width: 100, height: 100, cursor: 'pointer' }}
               />
             </label>
