@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'Feedbook.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -137,10 +137,18 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
+"""
+
 
 #database_url = os.environ.get("DATABASE_URL")
 #DATABASES["default"] = dj_database_url.parse(database_url)
 
+DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'], engine='django_cockroachdb')}
+
+#pass: oqdS5D2cafwbY39x-L7wAw
+#DATABASES = {'default': dj_database_url.config(default="postgresql://feedbook_user:oqdS5D2cafwbY39x-L7wAw@feedbook-7514.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full", engine='django_cockroachdb')}
+
+#DATABASES["default"]=dj_database_url.parse("postgresql://feedbook_user:oqdS5D2cafwbY39x-L7wAw@feedbook-7514.g8z.gcp-us-east1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
